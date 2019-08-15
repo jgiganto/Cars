@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bsd.Cars.Infrastructure.Extensions
+namespace Bsd.Cars.Infraestructure.Extensions
 {
     public static class DictionaryExtensions
     {

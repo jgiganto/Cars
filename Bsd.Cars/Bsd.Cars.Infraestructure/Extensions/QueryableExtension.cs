@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bsd.Cars.Infrastructure.Extensions
+namespace Bsd.Cars.Infraestructure.Extensions
 {
     public static class QueryableExtensions
     {
