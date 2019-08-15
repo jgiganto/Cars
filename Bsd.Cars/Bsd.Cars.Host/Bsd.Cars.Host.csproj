@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Bsd.Cars.Infraestructure\Bsd.Cars.Infraestructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ApplicationLogs\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

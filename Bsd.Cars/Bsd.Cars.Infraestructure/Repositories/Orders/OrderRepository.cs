@@ -4,7 +4,7 @@ using Bsd.Cars.Domain.Orders;
 using Bsd.Cars.Domain.Repositories.Orders;
 using Bsd.Cars.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
-using Telefonica.Arena.Infraestructure.Shared;
+using Bsd.Cars.Infraestructure.Shared;
 
 namespace Bsd.Cars.Infraestructure.Repositories.Orders
 {

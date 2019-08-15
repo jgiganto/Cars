@@ -1,34 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Bsd.Cars.Api;
+using Bsd.Cars.Host.Extensions;
+using Bsd.Cars.Host.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Bsd.Cars.Host
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public IConfiguration Configuration { get; }
+        private IHostingEnvironment Environment { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        {
+            Configuration = configuration;
+            Environment = environment;
+        }
+
+        readonly string AllowedOrigins = "_AllowedOrigins";
+
         public void ConfigureServices(IServiceCollection services)
         {
+            ApiConfiguration.ConfigureServices(services, Configuration, Environment);
+            services.AddDistributedMemoryCache();
+            services.AddOpenApi();
+
+            var origins = new string[] { "http://localhost:4200", "https://localhost:4200" };
+            services.AddCors(options =>
+            {
+                options.AddPolicy(AllowedOrigins,
+                builder =>
+                {
+                    builder.WithOrigins(origins)
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                });
+            });
+
+            services.AddEntityFrameworkCore(Configuration)
+                .AddCustomDbContext(Configuration);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseCors(AllowedOrigins)
+                .UseUnitOfWork();
 
-            app.Run(async (context) =>
+            ApiConfiguration.Configure(app, host =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                host.UseOpenApi();
+
+                return host;
             });
         }
+
     }
 }
