@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Bsd.Cars.Application.Vehicles.Responses
+namespace Bsd.Cars.Application.Orders.Responses
 {
-    public class VehicleModel
+    public class OrderModel
     {
         public int Id { get; set; }
         public string CarFrame { get; set; }
