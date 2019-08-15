@@ -3,7 +3,7 @@ using Bsd.Cars.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Bsd.Cars.Infraestructure.Context
+namespace Bsd.Cars.Infrastructure.Context
 {
     public class CarsContext : DbContext, IUnitOfWork
     {
