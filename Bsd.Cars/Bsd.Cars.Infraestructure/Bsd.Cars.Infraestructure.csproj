@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Context\ModelConfigurations\Orders\" />
+    <Folder Include="Queries\Orders\" />
   </ItemGroup>
 
 </Project>

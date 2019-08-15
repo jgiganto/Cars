@@ -6,8 +6,8 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Bsd.Cars.Domain.Shared;
-using Bsd.Cars.Infrastructure.Extensions;
 using Bsd.Cars.Infraestructure.Context;
+using Bsd.Cars.Infraestructure.Extensions;
 
 namespace Telefonica.Arena.Infraestructure.Shared
 {
