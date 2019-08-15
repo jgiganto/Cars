@@ -27,7 +27,7 @@ namespace Bsd.Cars.Host
             services.AddDistributedMemoryCache();
             services.AddOpenApi();
 
-            var origins = new string[] { "http://localhost:4200", "https://localhost:4200" };
+            var origins = new string[] { "http://localhost:4200", "https://localhost:4200", "http://localhost:3000" };
             services.AddCors(options =>
             {
                 options.AddPolicy(AllowedOrigins,
