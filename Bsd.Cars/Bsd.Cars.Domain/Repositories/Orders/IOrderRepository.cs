@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Bsd.Cars.Domain.Repositories.Orders
 {
-    public interface IOrderRespository : IRepository<Order>
+    public interface IOrderRepository : IRepository<Order>
     {
         Task<Order> FindById(int id, CancellationToken cancellationToken);
     }
