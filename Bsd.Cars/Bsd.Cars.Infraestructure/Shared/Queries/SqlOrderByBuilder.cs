@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Bsd.Cars.Application.Shared.Request;
+using Bsd.Cars.Infraestructure.Queries;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Bsd.Cars.Application.Shared.Request;
-using Bsd.Cars.Infraestructure.Queries;
 
 namespace Bsd.Cars.Infraestructure.Shared.Queries
 {

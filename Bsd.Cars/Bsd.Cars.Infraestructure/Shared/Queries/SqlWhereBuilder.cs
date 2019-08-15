@@ -1,9 +1,10 @@
-﻿using Bsd.Cars.Application.Shared.Request;
-using Bsd.Cars.Infraestructure.Queries;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Bsd.Cars.Application.Orders;
+using Bsd.Cars.Application.Shared.Request;
+using Bsd.Cars.Infraestructure.Queries;
 
 namespace Bsd.Cars.Infraestructure.Shared.Queries
 {
@@ -20,6 +21,7 @@ namespace Bsd.Cars.Infraestructure.Shared.Queries
             _parameters = new Dictionary<string, object>();
         }
 
+     
         public ParametrizedSql Build()
         {
             var sql = new StringBuilder();

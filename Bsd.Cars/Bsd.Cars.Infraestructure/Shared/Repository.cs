@@ -9,7 +9,7 @@ using Bsd.Cars.Domain.Shared;
 using Bsd.Cars.Infraestructure.Context;
 using Bsd.Cars.Infraestructure.Extensions;
 
-namespace Telefonica.Arena.Infraestructure.Shared
+namespace Bsd.Cars.Infraestructure.Shared
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {

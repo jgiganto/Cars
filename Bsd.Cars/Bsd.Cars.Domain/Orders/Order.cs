@@ -6,9 +6,9 @@ namespace Bsd.Cars.Domain.Orders
 {
     public class Order : IEntity
     {
-        public const int CarFrameMaxLengh = 17;
-        public const int ModelMaxLengh = 17;
-        public const int LicensePlateMaxLengh = 7;
+        public const int CarFrameMaxLengh = 30;
+        public const int ModelMaxLengh = 30;
+        public const int LicensePlateMaxLengh = 8;
 
 
         public int Id { get; private set; }
@@ -23,8 +23,7 @@ namespace Bsd.Cars.Domain.Orders
         public static Order Create(
                        string carFrame,
                        string model,
-                       string licensePlate,
-                       DateTime deliveryDate)
+                       string licensePlate)
         {
             ValidateCarFrame(carFrame);
             ValidateModel(model);
@@ -35,7 +34,7 @@ namespace Bsd.Cars.Domain.Orders
                 CarFrame = carFrame,
                 Model = model,
                 LicensePlate = licensePlate,
-                DeliveryDate = deliveryDate
+                DeliveryDate = DateTime.UtcNow
             };
 
             return order;
