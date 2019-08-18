@@ -40,7 +40,11 @@ namespace Bsd.Cars.Infraestructure.Queries.Orders
 
             var select = $@"
                 SELECT DISTINCT
-                {nameof(OrderModel.Id)}, {nameof(OrderModel.CarFrame)}, {nameof(OrderModel.Model)}, {nameof(OrderModel.LicensePlate)}, {nameof(OrderModel.DeliveryDate)}
+                {nameof(OrderModel.Id)},
+                {nameof(OrderModel.CarFrame)},
+                {nameof(OrderModel.Model)},
+                {nameof(OrderModel.LicensePlate)},
+                {nameof(OrderModel.DeliveryDate)}
                 FROM {nameof(CarsContext.Orders)} {where.Sql} {orderBy} {pagination.Sql}";
 
             var count = $@"SELECT COUNT(*) FROM {nameof(CarsContext.Orders)} O {where.Sql}";

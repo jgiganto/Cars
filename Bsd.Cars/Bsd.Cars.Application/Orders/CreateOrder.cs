@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace Bsd.Cars.Application.Orders
 {
     public sealed class CreateOrderRequest : IRequest<OrderModel>
-    {
-        public int Id { get; set; }
+    {        
         public string CarFrame { get; set; }
         public string Model { get; set; }
         public string LicensePlate { get; set; }
@@ -19,13 +18,9 @@ namespace Bsd.Cars.Application.Orders
     }
 
     public sealed class CreateOrderValidator : AbstractValidator<CreateOrderRequest>
-    {
-        private readonly IOrderRepository _orderRepository;
-        public CreateOrderValidator(IOrderRepository orderRepository)
-        {
-            _orderRepository = orderRepository;
-
-
+    {        
+        public CreateOrderValidator()
+        {    
             RuleFor(o => o.CarFrame).NotEmpty().MaximumLength(Order.CarFrameMaxLengh);
             RuleFor(o => o.Model).NotEmpty().MaximumLength(Order.ModelMaxLengh);
             RuleFor(o => o.LicensePlate).NotEmpty().MaximumLength(Order.LicensePlateMaxLengh);

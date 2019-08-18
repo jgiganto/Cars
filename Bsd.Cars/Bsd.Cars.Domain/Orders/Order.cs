@@ -40,6 +40,22 @@ namespace Bsd.Cars.Domain.Orders
             return order;
         }
 
+        public void Update(
+                string carFrame,
+                string model,
+                string licensePlate
+            )
+        {
+            ValidateCarFrame(carFrame);
+            ValidateModel(model);
+            ValidateLicensePlate(licensePlate);
+
+            CarFrame = carFrame;
+            Model = model;
+            LicensePlate = licensePlate;
+            DeliveryDate = DateTime.UtcNow;
+        }
+
         private static void ValidateCarFrame(string carFrame)
         {
             DomainPreconditions.NotNull(carFrame, nameof(CarFrame));
