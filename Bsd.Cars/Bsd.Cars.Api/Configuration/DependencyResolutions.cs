@@ -15,7 +15,7 @@ namespace Bsd.Cars.Api.Configuration
     {
         public static void AddTo(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(typeof(GetOrdersRequest).Assembly);
+            services.AddMediatR(typeof(GetOrdersRequest).Assembly);            
 
             var connectionStrings = configuration.GetSection<ConnectionStrings>();
             services.AddScoped<IDbConnection>(x =>

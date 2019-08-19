@@ -56,13 +56,13 @@ namespace Bsd.Cars.Api.Features.Inventories
             return NoContent();
         }
 
-        //[HttpDelete]
-        //[ProducesResponseType(typeof(OrderModel), StatusCodes.Status200OK)]
-        //[ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        //public async Task<ActionResult> DeleteOrder(int id)
-        //{
-        //    await _mediator.Send(new DeleteOrderRequest { Id = id });
-        //    return Ok();
-        //}
+        [HttpDelete]
+        [ProducesResponseType(typeof(OrderModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> DeleteOrder(int id)
+        {
+            await _mediator.Send(new DeleteOrderRequest { Id = id });
+            return NoContent();
+        }
     }
 }
