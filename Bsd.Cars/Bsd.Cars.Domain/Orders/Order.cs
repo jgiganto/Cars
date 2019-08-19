@@ -11,7 +11,7 @@ namespace Bsd.Cars.Domain.Orders
         public const int LicensePlateMaxLengh = 8;
 
 
-        public int Id { get; private set; }
+        public int Id { get;private set; }
         public string CarFrame { get; private set; }
         public string Model { get; private set; }
         public string LicensePlate { get; private set; }
@@ -40,6 +40,15 @@ namespace Bsd.Cars.Domain.Orders
             return order;
         }
 
+        public static Order Delete(int id)
+        {
+            var order = new Order
+            {
+                Id = id
+            };
+            return order;
+        }
+
         public void Update(
                 string carFrame,
                 string model,
@@ -55,7 +64,7 @@ namespace Bsd.Cars.Domain.Orders
             LicensePlate = licensePlate;
             DeliveryDate = DateTime.UtcNow;
         }
-
+                
         private static void ValidateCarFrame(string carFrame)
         {
             DomainPreconditions.NotNull(carFrame, nameof(CarFrame));

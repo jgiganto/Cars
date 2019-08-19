@@ -18,5 +18,15 @@ namespace Bsd.Cars.Infraestructure.Repositories.Orders
             return await _context.Set<Order>()
                 .SingleOrDefaultAsync(o => o.Id == id, cancellationToken);
         }
+
+        public void Delete(Order order, CancellationToken cancellationToken)
+        {
+            if (_context.Orders.SingleOrDefaultAsync(o => o.Id == order.Id) != null)
+            {
+                _context.Orders.Attach(order);
+                _context.Orders.Remove(order);
+                _context.SaveChangesAsync();
+            }
+        }
     }
 }

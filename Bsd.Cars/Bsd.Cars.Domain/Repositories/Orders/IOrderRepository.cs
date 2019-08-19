@@ -8,5 +8,6 @@ namespace Bsd.Cars.Domain.Repositories.Orders
     public interface IOrderRepository : IRepository<Order>
     {
         Task<Order> FindById(int id, CancellationToken cancellationToken);
+        void Delete(Order order, CancellationToken cancellationToken);
     }
 }
