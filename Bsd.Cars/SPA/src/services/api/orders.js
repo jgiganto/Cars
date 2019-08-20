@@ -6,4 +6,7 @@ const getPaginatedOrders = ({ skip, take }) =>
     take
   });
 
-export { getPaginatedOrders };
+const getOrderById = ({ id }) =>
+  createInstance().get(`Orders?id=${id}&api-version=1.0`);
+
+export { getPaginatedOrders, getOrderById };
